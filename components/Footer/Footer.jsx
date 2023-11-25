@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom';
+import styles from './footer.module.css';
 
 export default function Footer() {
   return (
-    <>
-      <div>This is Footer Component!</div>
-      <div>
+    <div className={styles.footerContainer}>
+      <div className={styles.footerNavBarLinkContainer}>
         <button>
           <Link to='/random'>랜덤</Link>
         </button>
@@ -15,6 +15,6 @@ export default function Footer() {
           <Link to='/ingredient'>재료별</Link>
         </button>
       </div>
-    </>
+    </div>
   );
 }

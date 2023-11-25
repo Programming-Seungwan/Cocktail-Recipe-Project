@@ -1,3 +1,5 @@
+import styles from './header.module.css';
+
 export default function Header() {
-  return <div>This is Header Component!</div>;
+  return <div className={styles.headerContainer}>This is Header Component!</div>;
 }

@@ -1,0 +1,11 @@
+.headerContainer {
+  width: 100vw;
+  max-width: 480px;
+  position: fixed;
+  height: 70px;
+  top: 0;
+  z-index: 99;
+  display: flex;
+  justify-content: space-around;
+  background-color: tomato;
+}

@@ -1,0 +1,17 @@
+.footerContainer {
+  width: 100vw;
+  max-width: 480px;
+  position: fixed;
+  height: 70px;
+  bottom: 0;
+  z-index: 99;
+  background-color: teal;
+  display: flex;
+  align-items: center;
+}
+
+.footerNavBarLinkContainer {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
