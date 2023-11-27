@@ -19,27 +19,27 @@ export default function Footer() {
       <div className={styles.footerNavBarLinkContainer}>
         <button>
           <Link to='/home' onClick={handleClickLink}>
-            홈
+            To Home
           </Link>
         </button>
         <button>
           <Link to='/random' onClick={handleClickLink}>
-            랜덤
+            By Random
           </Link>
         </button>
         <button>
           <Link to='/searchName' onClick={handleClickLink}>
-            이름으로 칵테일 검색
+            By name
           </Link>
         </button>
         <button>
           <Link to='/category' onClick={handleClickLink}>
-            카테고리별
+            By Category
           </Link>
         </button>
         <button>
           <Link to='/ingredient' onClick={handleClickLink}>
-            재료별
+            By Ingredient
           </Link>
         </button>
       </div>

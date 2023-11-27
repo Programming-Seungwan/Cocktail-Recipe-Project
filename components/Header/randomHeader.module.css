@@ -2,7 +2,7 @@
   width: 100vw;
   max-width: 480px;
   position: fixed;
-  height: 70px;
+  height: 8vh;
   top: 0;
   z-index: 99;
 }
