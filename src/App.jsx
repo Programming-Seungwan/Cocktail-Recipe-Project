@@ -7,6 +7,7 @@ import Random from '../components/Random/Random';
 import Ingredient from '../components/Ingredient/Ingredient';
 import Category from '../components/Category/Category';
 import DataContextProvider from './dataContext.jsx';
+import SearchName from '../components/SearchName/SearchName.jsx';
 
 export default function App() {
   return (
@@ -16,6 +17,7 @@ export default function App() {
           <Header />
           <Routes>
             <Route path='/*' element={<Home />}></Route>
+            <Route path='/searchName' element={<SearchName />}></Route>
             <Route path='/random' element={<Random />}></Route>
             <Route path='/ingredient' element={<Ingredient />}></Route>
             <Route path='/category' element={<Category />}></Route>

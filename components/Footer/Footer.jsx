@@ -11,6 +11,7 @@ export default function Footer() {
     else if (pathname === '/random') handleAppMode('random');
     else if (pathname === '/ingredient') handleAppMode('ingredient');
     else if (pathname === '/home') handleAppMode('home');
+    else if (pathname === '/searchName') handleAppMode('searchName');
   }
 
   return (
@@ -24,6 +25,11 @@ export default function Footer() {
         <button>
           <Link to='/random' onClick={handleClickLink}>
             랜덤
+          </Link>
+        </button>
+        <button>
+          <Link to='/searchName' onClick={handleClickLink}>
+            이름으로 칵테일 검색
           </Link>
         </button>
         <button>

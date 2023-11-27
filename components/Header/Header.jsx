@@ -5,6 +5,7 @@ import HomeHeader from './HomeHeader';
 import IngredientHeader from './IngredientHeader';
 import RandomHeader from './RandomHeader';
 import CategoryHeader from './CategoryHeader';
+import SearchNameHeader from './SearchNameHeader';
 
 export default function Header() {
   const { mode, handleAppMode } = useDataContext();
@@ -14,6 +15,7 @@ export default function Header() {
       {mode === 'random' && <RandomHeader />}
       {mode === 'ingredient' && <IngredientHeader />}
       {mode === 'category' && <CategoryHeader />}
+      {mode === 'searchName' && <SearchNameHeader />}
     </>
   );
 }
