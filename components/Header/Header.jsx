@@ -1,11 +1,12 @@
 import styles from './header.module.css';
 import { useDataContext } from '../../src/dataContext';
 
-import HomeHeader from './HomeHeader';
-import IngredientHeader from './IngredientHeader';
-import RandomHeader from './RandomHeader';
-import CategoryHeader from './CategoryHeader';
-import SearchNameHeader from './SearchNameHeader';
+import HomeHeader from './HomeHeader/HomeHeader';
+import IngredientHeader from './IngredientHeader/IngredientHeader';
+import RandomHeader from './RandomHeader/RandomHeader';
+import CategoryHeader from './CategoryHeader/CategoryHeader';
+import SearchNameHeader from './SearchNameHeader/SearchNameHeader';
+import CocktailDetailHeader from './CocktailDetailHeader/CocktailDetailHeader';
 
 export default function Header() {
   const { mode, handleAppMode } = useDataContext();
@@ -16,6 +17,7 @@ export default function Header() {
       {mode === 'ingredient' && <IngredientHeader />}
       {mode === 'category' && <CategoryHeader />}
       {mode === 'searchName' && <SearchNameHeader />}
+      {mode === 'cocktailDetail' && <CocktailDetailHeader />}
     </>
   );
 }

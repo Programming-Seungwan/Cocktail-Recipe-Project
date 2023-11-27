@@ -1,8 +1,9 @@
-.ingredientHeaderContainer {
+.cocktailDetailHeaderContainer {
   width: 100vw;
   max-width: 480px;
   position: fixed;
   height: 8vh;
   top: 0;
   z-index: 99;
+  border-bottom: 1px #0001 solid;
 }

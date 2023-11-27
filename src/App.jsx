@@ -8,6 +8,7 @@ import Ingredient from '../components/Ingredient/Ingredient';
 import Category from '../components/Category/Category';
 import DataContextProvider from './dataContext.jsx';
 import SearchName from '../components/SearchName/SearchName.jsx';
+import CocktailDetail from '../components/CocktailDetail/CocktailDetail.jsx';
 
 export default function App() {
   return (
