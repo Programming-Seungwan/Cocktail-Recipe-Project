@@ -18,11 +18,25 @@ export async function getCocktailsByName(cocktailName) {
 
   try {
     const response = await fetch(url);
-    const datas = response.json();
+    const datas = await response.json();
     return datas;
   } catch (error) {
     console.log(error);
   }
 }
 
-getCocktailsByName('margarita').then((data) => console.log(data['drinks']));
+// getCocktailsByName('margarita').then((data) => console.log(data['drinks']));
+
+// 재료 id를 이용해서 재료명과 설명, 알콜여부, 도수를 데이터로 반환하는 함수
+export async function getIngredientNameById(ingredientId) {
+  const url = `https://thecocktaildb.com/api/json/v1/1/lookup.php?iid=${ingredientId}`;
+  try {
+    const response = await fetch(url);
+    const data = response.json();
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+// getIngredientNameById(2).then((data) => console.log(data));
