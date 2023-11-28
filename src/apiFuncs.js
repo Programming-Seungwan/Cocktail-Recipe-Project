@@ -32,11 +32,42 @@ export async function getIngredientNameById(ingredientId) {
   const url = `https://thecocktaildb.com/api/json/v1/1/lookup.php?iid=${ingredientId}`;
   try {
     const response = await fetch(url);
-    const data = response.json();
+    const data = await response.json();
     return data;
   } catch (error) {
     console.log(error);
   }
 }
 
-// getIngredientNameById(2).then((data) => console.log(data));
+// category에 맞는 칵테일 정보를 호출하는 함수
+// 해당 함수는 카테고리에 맞는 칵테일의 세부 정보를 모두 반환하지 않고 이름과 id만을 반환하므로 다시 요청을 날려서 데이터를 정확히 얻어내야함
+
+export async function getCocktailsByCategoryName(categoryName) {
+  const url = `https://thecocktaildb.com/api/json/v1/1/filter.php?c=${categoryName}`;
+
+  try {
+    const response = await fetch(url);
+    const data = await response.json();
+
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+// getCocktailsByCategoryName('Cocktail').then((data) => console.log(data['drinks'].length));
+
+export async function getCocktailByCocktailId(cocktailId) {
+  const url = `https://thecocktaildb.com/api/json/v1/1/lookup.php?i=${cocktailId}`;
+
+  try {
+    const response = await fetch(url);
+    const data = await response.json();
+
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+// getCocktailByCocktailId(11007).then((data) => console.log(data));
