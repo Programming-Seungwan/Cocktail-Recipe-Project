@@ -22,6 +22,7 @@ export default function App() {
             <Route path='/random' element={<Random />}></Route>
             <Route path='/ingredient' element={<Ingredient />}></Route>
             <Route path='/category' element={<Category />}></Route>
+            <Route path='/cocktail-detail' element={<CocktailDetail />}></Route>
           </Routes>
           <Footer />
         </Router>

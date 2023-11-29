@@ -5,12 +5,21 @@ const DataContext = createContext();
 
 export default function DataContextProvider({ children }) {
   const [mode, setMode] = useState('home');
+  const [currentDetailCocktailInfo, setCurrentDetailCocktailInfo] = useState('');
 
   function handleAppMode(data) {
     setMode(data);
   }
 
-  return <DataContext.Provider value={{ mode, handleAppMode }}>{children}</DataContext.Provider>;
+  function handleCurrentDetailCocktailInfo(data) {
+    setCurrentDetailCocktailInfo(data);
+  }
+
+  return (
+    <DataContext.Provider value={{ mode, handleAppMode, currentDetailCocktailInfo, handleCurrentDetailCocktailInfo }}>
+      {children}
+    </DataContext.Provider>
+  );
 }
 
 // 상태를 가져오는 함수를 간편하게 사용할 수 있도록
