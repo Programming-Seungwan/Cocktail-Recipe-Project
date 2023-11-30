@@ -5,7 +5,7 @@ export async function getRandomOneCocktail() {
     const { drinks } = await response.json();
     return drinks;
   } catch (error) {
-    console.log(error);
+    throw error;
   }
 }
 
@@ -21,7 +21,7 @@ export async function getCocktailsByName(cocktailName) {
     const datas = await response.json();
     return datas;
   } catch (error) {
-    console.log(error);
+    throw error;
   }
 }
 
@@ -35,7 +35,7 @@ export async function getIngredientNameById(ingredientId) {
     const data = await response.json();
     return data;
   } catch (error) {
-    console.log(error);
+    throw error;
   }
 }
 
@@ -51,7 +51,7 @@ export async function getCocktailsByCategoryName(categoryName) {
 
     return data;
   } catch (error) {
-    console.log(error);
+    throw error;
   }
 }
 
@@ -66,7 +66,7 @@ export async function getCocktailByCocktailId(cocktailId) {
 
     return data;
   } catch (error) {
-    console.log(error);
+    throw error;
   }
 }
 

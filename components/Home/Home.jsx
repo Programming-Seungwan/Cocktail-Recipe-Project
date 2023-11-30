@@ -10,16 +10,17 @@ export default function Home() {
   const { mode, handleAppMode } = useDataContext();
 
   useEffect(() => {
-    async function getTodayRandomCocktail() {
-      try {
-        const todayRandomCocktailData = await getRandomOneCocktail();
-        return todayRandomCocktailData;
-      } catch (error) {
-        console.log(error);
-      }
-    }
+    // async function getTodayRandomCocktail() {
+    //   try {
+    //     const todayRandomCocktailData = await getRandomOneCocktail();
+    //     return todayRandomCocktailData;
+    //   } catch (error) {
+    //     console.log(error);
+    //   }
+    // }
 
-    getTodayRandomCocktail().then((data) => setTodayCocktail(data[0]));
+    // getTodayRandomCocktail().then((data) => setTodayCocktail(data[0]));
+    getRandomOneCocktail().then((data) => setTodayCocktail(data[0]));
   }, []);
 
   return (
