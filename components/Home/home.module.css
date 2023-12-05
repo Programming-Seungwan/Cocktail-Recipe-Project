@@ -3,26 +3,17 @@
   height: 100%;
   padding: 8vh 0;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
 }
 
-.homeComponentContent {
-  width: 90%;
-  height: 90%;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
+.todayCocktailPara {
+  font-family: yg-jalnan;
 }
 
 .homeComponentCocktailCard {
   width: 75%;
   display: flex;
   justify-content: center;
-}
-
-.homeComponentCocktailCard:hover {
-}
-
-.homeComponentCocktailCard:active {
 }

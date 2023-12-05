@@ -7,6 +7,7 @@ export default function Footer() {
 
   function handleClickLink(ev) {
     const pathname = ev.target.pathname;
+    console.log(pathname);
     if (pathname === '/category') handleAppMode('category');
     else if (pathname === '/random') handleAppMode('random');
     else if (pathname === '/ingredient') handleAppMode('ingredient');
@@ -19,9 +20,10 @@ export default function Footer() {
       <div className={styles.footerNavBarLinkContainer}>
         <button>
           <Link to='/home' onClick={handleClickLink}>
-            To Home
+            To home
           </Link>
         </button>
+
         <button>
           <Link to='/random' onClick={handleClickLink}>
             By Random

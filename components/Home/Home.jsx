@@ -25,15 +25,14 @@ export default function Home() {
 
   return (
     <div className={styles.homeComponentContainer}>
-      <div className={styles.homeComponentContent}>
-        {!todayCocktail ? (
-          <LoadingUI />
-        ) : (
-          <div className={styles.homeComponentCocktailCard}>
-            <CocktailCard cocktailInfo={todayCocktail} />
-          </div>
-        )}
-      </div>
+      <p className={styles.todayCocktailPara}>Today's Cocktail</p>
+      {!todayCocktail ? (
+        <LoadingUI />
+      ) : (
+        <div className={styles.homeComponentCocktailCard}>
+          <CocktailCard cocktailInfo={todayCocktail} />
+        </div>
+      )}
     </div>
   );
 }

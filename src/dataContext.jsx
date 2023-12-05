@@ -5,6 +5,7 @@ const DataContext = createContext();
 
 export default function DataContextProvider({ children }) {
   const [mode, setMode] = useState('home');
+  // 아래의 상태는 detail탭에서 사용되는 상태 정보이다
   const [currentDetailCocktailInfo, setCurrentDetailCocktailInfo] = useState('');
 
   function handleAppMode(data) {
