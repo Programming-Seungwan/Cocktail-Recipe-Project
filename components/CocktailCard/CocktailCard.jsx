@@ -6,11 +6,12 @@ import { useDataContext } from '../../src/dataContext';
 import { useNavigate } from 'react-router-dom';
 
 export default function CocktailCard({ cocktailInfo }) {
-  const { currentDetailCocktailInfo, handleCurrentDetailCocktailInfo } = useDataContext();
+  const { handleAppMode, currentDetailCocktailInfo, handleCurrentDetailCocktailInfo } = useDataContext();
   const navigate = useNavigate();
 
   function handleClickCocktailCard(data) {
     handleCurrentDetailCocktailInfo(data);
+    handleAppMode('cocktailDetail');
     console.log(currentDetailCocktailInfo);
     navigate('/cocktail-detail');
   }
