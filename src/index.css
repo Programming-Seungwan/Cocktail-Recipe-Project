@@ -1,3 +1,17 @@
+:root {
+  --white0: #fff;
+  --black0: #242424;
+  --grey0: #848484;
+  --grey1: #a4a4a4;
+  --grey2: #bdbdbd;
+  --grey3: #d8d8d8;
+  --grey4: #efefef;
+  --grey5: #f2f2f2;
+  --green0: #008c4e;
+  --green1: #0ca661;
+  --green2: rgba(0, 140, 78, 0.24);
+}
+
 @font-face {
   font-family: 'yg-jalnan';
   src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff') format('woff');
@@ -12,18 +26,23 @@
   font-style: normal;
 }
 
+* {
+  box-sizing: border-box;
+}
+
+html,
 body {
-  margin: 0;
-  display: flex;
-  justify-content: center;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 480px;
+  height: 100%;
 }
 
 #root {
-  width: 100vw;
+  width: 100%;
   max-width: 480px;
-  height: 100vh;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   box-shadow: 0 0 20px #0003;
 }
