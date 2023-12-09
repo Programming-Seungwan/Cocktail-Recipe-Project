@@ -30,19 +30,11 @@
   box-sizing: border-box;
 }
 
-html,
-body {
-  margin: 0 auto;
+html {
   width: 100%;
-  max-width: 480px;
   height: 100%;
 }
 
-#root {
-  width: 100%;
-  max-width: 480px;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  box-shadow: 0 0 20px #0003;
+body {
+  margin: 0;
 }
