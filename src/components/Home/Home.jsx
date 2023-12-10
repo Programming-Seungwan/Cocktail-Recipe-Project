@@ -1,4 +1,8 @@
 import styled from 'styled-components';
+import { getRandomOneCocktail } from '../../apiFuncs';
+import { useEffect, useState } from 'react';
+import CocktailCard from '../CocktailCard/CocktailCard';
+import IsLoading from '../isLoading/IsLoading';
 
 const StyledHomeContainer = styled.div`
   margin: 7vh 0;
@@ -11,12 +15,26 @@ const StyledHomeContainer = styled.div`
 `;
 
 export default function Home() {
+  // api 호출을 통해서 랜덤 칵테일 정보를 가져오고 이를 CocktailCard 컴포넌트에 전달해준다
+  const [cocktailInfo, setCocktailInfo] = useState(null);
+
+  async function getOneCocktailInfo() {
+    try {
+      const response = await fetch('https://thecocktaildb.com/api/json/v1/1/random.php');
+      const result = await response.json();
+      setCocktailInfo(result.drinks[0]);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  useEffect(() => {
+    getOneCocktailInfo();
+  }, []);
+
   return (
     <StyledHomeContainer>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante
-        dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris.
-      </p>
+      {!cocktailInfo ? <IsLoading /> : <CocktailCard cocktailInfo={cocktailInfo} />}
     </StyledHomeContainer>
   );
 }
