@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { getRandomOneCocktail } from '../../apiFuncs';
+
 import { useEffect, useState } from 'react';
 import CocktailCard from '../CocktailCard/CocktailCard';
 import IsLoading from '../isLoading/IsLoading';

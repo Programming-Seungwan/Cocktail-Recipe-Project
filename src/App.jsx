@@ -9,6 +9,7 @@ import SearchName from './components/SearchName/SearchName';
 import Ingredient from './components/Ingredient/Ingredient';
 import Category from './components/Category/Category';
 import CocktailDetail from './components/CocktailDetail/CocktailDetail';
+import DeveloperDetail from './components/DeveloperDetail/DeveloperDetail';
 
 export default function App() {
   return (
@@ -23,6 +24,7 @@ export default function App() {
             <Route path='/ingredient' element={<Ingredient />}></Route>
             <Route path='/category' element={<Category />}></Route>
             <Route path='/cocktail-detail' element={<CocktailDetail />}></Route>
+            <Route path='/developer-detail' element={<DeveloperDetail />}></Route>
           </Routes>
           <Footer />
         </Router>
