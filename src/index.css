@@ -45,3 +45,13 @@ body {
   flex-direction: column;
   height: 100%;
 }
+
+/* content overflow로 인해서 생성되는 스크롤바를 없애주기 위한 설정 */
+.scroll-box {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.scroll-box::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera*/
+}
