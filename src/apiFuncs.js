@@ -25,7 +25,7 @@ export async function getCocktailsByName(cocktailName) {
   }
 }
 
-// getCocktailsByName('margarita').then((data) => console.log(data['drinks']));
+// getCocktailsByName('시발').then((data) => console.log(data['drinks']));
 
 // 재료 id를 이용해서 재료명과 설명, 알콜여부, 도수를 데이터로 반환하는 함수
 export async function getIngredientNameById(ingredientId) {
