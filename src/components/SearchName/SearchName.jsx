@@ -57,7 +57,7 @@ export default function SearchName() {
   }
 
   return (
-    <StyledSearchNameContainer>
+    <StyledSearchNameContainer className='scroll-box'>
       {/* 아직 제출 안됐을 때에는 form이 보이게 되고, 제출되면 실패 ui 카드나 칵테일 정보 카드가 위치 */}
       {!isFormSubmit && (
         <StyledSearchFormContainer onSubmit={handleFormSubmit}>
@@ -68,7 +68,7 @@ export default function SearchName() {
       )}
 
       {isFormSubmit && (
-        <ul>
+        <ul style={{ margin: '0', padding: '0' }}>
           {searchCocktailsData === null ? (
             <div>There is no search cocktail data!</div>
           ) : (
