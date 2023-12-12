@@ -55,7 +55,7 @@ export async function getCocktailsByCategoryName(categoryName) {
   }
 }
 
-// getCocktailsByCategoryName('Cocktail').then((data) => console.log(data['drinks'].length));
+// getCocktailsByCategoryName('Cocktail').then((data) => console.log(data['drinks']));
 
 export async function getCocktailByCocktailId(cocktailId) {
   const url = `https://thecocktaildb.com/api/json/v1/1/lookup.php?i=${cocktailId}`;
