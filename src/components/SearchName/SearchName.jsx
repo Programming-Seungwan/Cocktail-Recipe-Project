@@ -10,7 +10,7 @@ import styled from 'styled-components';
 import CocktailCard from '../CocktailCard/CocktailCard';
 
 const StyledSearchNameContainer = styled.div`
-  margin: 7vh 0;
+  margin: 7vh 0 10vh 0;
   padding: 0 1vh;
   flex: 1;
   display: flex;
@@ -18,6 +18,7 @@ const StyledSearchNameContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   overflow-y: auto;
+  position: relative;
 `;
 
 // 최외곽 컨테이너에 바로 들어갈
@@ -28,6 +29,21 @@ const StyledSearchFormContainer = styled.form`
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+`;
+
+const StyledFormRegenerateButton = styled.button`
+  width: 30%;
+  height: 40px;
+  margin: 20px;
+  background-color: green;
+`;
+
+// 검색한 칵테일 카드들이 버튼과 겹치기에 position을 absolute로 해주고 부모인 껍데기 container를 relative로 만들어줌
+const StyledSearchCocktailsUL = styled.ul`
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 90px;
 `;
 
 export default function SearchName() {
@@ -56,9 +72,19 @@ export default function SearchName() {
     getCocktailsBySearchName(cocktailNameRef.current.value).then((data) => setSearchCocktailsData(data.drinks));
   }
 
+  function handleClickRegenerateFormbutton() {
+    setIsFormSubmit(false);
+    setSearchCocktailsData([]);
+  }
+
   return (
     <StyledSearchNameContainer className='scroll-box'>
       {/* 아직 제출 안됐을 때에는 form이 보이게 되고, 제출되면 실패 ui 카드나 칵테일 정보 카드가 위치 */}
+      {isFormSubmit && (
+        <StyledFormRegenerateButton onClick={handleClickRegenerateFormbutton}>
+          Search Cocktail by name again!
+        </StyledFormRegenerateButton>
+      )}
       {!isFormSubmit && (
         <StyledSearchFormContainer onSubmit={handleFormSubmit}>
           <p>Search by Cocktail name</p>
@@ -68,13 +94,13 @@ export default function SearchName() {
       )}
 
       {isFormSubmit && (
-        <ul style={{ margin: '0', padding: '0' }}>
+        <StyledSearchCocktailsUL style={{ margin: '0', padding: '0' }}>
           {searchCocktailsData === null ? (
             <div>There is no search cocktail data!</div>
           ) : (
             searchCocktailsData.map((cocktailInfo, index) => <CocktailCard key={index} cocktailInfo={cocktailInfo} />)
           )}
-        </ul>
+        </StyledSearchCocktailsUL>
       )}
     </StyledSearchNameContainer>
   );
