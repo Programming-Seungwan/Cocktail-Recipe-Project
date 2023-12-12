@@ -26,7 +26,7 @@ const StyledCategoryButtonsContainer = styled.div`
 `;
 
 const StyledCategoryButton = styled.button`
-  background-color: var(--grey1);
+  background-color: var(--grey3);
 `;
 
 const StyledCategoryCocktaiCardUL = styled.ul`

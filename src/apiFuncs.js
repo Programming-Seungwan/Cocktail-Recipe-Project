@@ -71,3 +71,18 @@ export async function getCocktailByCocktailId(cocktailId) {
 }
 
 // getCocktailByCocktailId(11007).then((data) => console.log(data));
+
+export async function getCocktailByIngredientName(ingredientName) {
+  const url = `https://thecocktaildb.com/api/json/v1/1/filter.php?i=${ingredientName}`;
+
+  try {
+    const response = await fetch(url);
+    const data = await response.json();
+
+    return data;
+  } catch (error) {
+    throw error;
+  }
+}
+
+// getCocktailByIngredientName('Zima').then((data) => console.log(data));
