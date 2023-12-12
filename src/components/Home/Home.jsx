@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import { useEffect, useState } from 'react';
 import CocktailCard from '../CocktailCard/CocktailCard';
-import IsLoading from '../isLoading/IsLoading';
+import IsLoading from '../IsLoading/IsLoading';
 
 const StyledHomeContainer = styled.div`
   margin: 7vh 0;
