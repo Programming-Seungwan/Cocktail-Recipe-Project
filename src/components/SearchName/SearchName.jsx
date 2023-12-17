@@ -8,6 +8,7 @@
 import { useRef, useState } from 'react';
 import styled from 'styled-components';
 import CocktailCard from '../CocktailCard/CocktailCard';
+import { getCocktailsByName } from '../../apiFuncs';
 
 const StyledSearchNameContainer = styled.div`
   margin: 7vh 0 10vh 0;
@@ -51,25 +52,13 @@ export default function SearchName() {
   const [searchCocktailsData, setSearchCocktailsData] = useState([]);
   const cocktailNameRef = useRef(null);
 
-  async function getCocktailsBySearchName(searchName) {
-    const url = `https://thecocktaildb.com/api/json/v1/1/search.php?s=${searchName}`;
-
-    try {
-      const response = await fetch(url);
-      const data = await response.json();
-
-      return data;
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
   function handleFormSubmit(ev) {
     ev.preventDefault();
     console.log(cocktailNameRef.current.value);
     // 입력 폼은 제출되었고 이제 폼은 사라지고 데이터 칵테일카드가 보여지거나 데이터가 없으면 존재하지 않는다는 문구 표시
     setIsFormSubmit(true);
-    getCocktailsBySearchName(cocktailNameRef.current.value).then((data) => setSearchCocktailsData(data.drinks));
+
+    getCocktailsByName(cocktailNameRef.current.value).then((data) => setSearchCocktailsData(data.drinks));
   }
 
   function handleClickRegenerateFormbutton() {

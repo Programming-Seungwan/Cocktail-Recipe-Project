@@ -6,6 +6,7 @@ import styled from 'styled-components';
 import { useEffect, useState } from 'react';
 import CocktailCard from '../CocktailCard/CocktailCard';
 import IsLoading from '../IsLoading/IsLoading';
+import { getRandomOneCocktail } from '../../apiFuncs';
 
 const StyledRandomContainer = styled.div`
   margin: 7vh 0;
@@ -22,20 +23,9 @@ export default function Random() {
   const [randomFiveCocktailInfoArray, setRandomFiveCocktailInfoArray] = useState([]);
 
   useEffect(() => {
-    async function getOneCocktailInfo() {
-      try {
-        const response = await fetch('https://thecocktaildb.com/api/json/v1/1/random.php');
-        const result = await response.json();
-
-        // This is returned by promise object!!
-        return result.drinks[0];
-      } catch (error) {
-        console.log(error);
-      }
-    }
-
+    getRandomOneCocktail().then((mydata) => console.log(mydata));
     for (let i = 0; i < 5; i++) {
-      getOneCocktailInfo().then((data) => setRandomFiveCocktailInfoArray((prev) => [...prev, data]));
+      getRandomOneCocktail().then((data) => setRandomFiveCocktailInfoArray((prev) => [...prev, data[0]]));
     }
   }, []);
 
