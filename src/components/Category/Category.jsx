@@ -7,6 +7,7 @@
 import styled from 'styled-components';
 import { useState, useEffect } from 'react';
 import CategoryCocktailCard from './CategoryCocktailCard/CategoryCocktailCard';
+import { getCocktailsByCategoryName } from '../../apiFuncs';
 
 const StyledCategoryContainer = styled.div`
   margin: 7vh 0;
@@ -49,20 +50,6 @@ export default function Category() {
   // 해당 이벤트 트리거 함수가 발동되면 useEffect 훅의 실행으로 새로운 데이터들이 받아와짐
   function handleClickCategoryButton(ev) {
     setSelectedCategory(ev.target.innerText);
-  }
-
-  // 카테고리의 이름을 넣어주면 이에 맞는 칵테일 정보들을 반환해주는 함수
-  async function getCocktailsByCategoryName(categoryName) {
-    const url = `https://thecocktaildb.com/api/json/v1/1/filter.php?c=${categoryName}`;
-
-    try {
-      const response = await fetch(url);
-      const data = await response.json();
-
-      return data;
-    } catch (error) {
-      throw error;
-    }
   }
 
   const [selectedCategory, setSelectedCategory] = useState(null);
