@@ -10,7 +10,7 @@ import IngredientCocktailCard from './IngredientCocktailCard/IngredientCocktailC
 
 const StyledIngredientContainer = styled.div`
   margin: 7vh 0;
-  padding: 0 1vh;
+  padding: 2vh 1vh;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -19,13 +19,27 @@ const StyledIngredientContainer = styled.div`
   overflow-y: auto;
 `;
 
-const StyledAlphabetButtonContainer = styled.div`
+const StyledButtonUl = styled.ul`
+  margin: 0;
+  padding: 0;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 `;
 
 const StyledAlphabetButton = styled.button`
   background-color = var(--grey2);
+  width: 110px;
+  height: 55px;
+  margin: 10px;
+  border-radius: 10px;
+  padding: 0;
+  border: 1px;
+  font-family: GmarketSansMedium;
+
+  &: hover {
+    cursor: pointer;
+  }
 `;
 
 const StyledIngredientButtonContainer = styled.div`
@@ -34,7 +48,17 @@ const StyledIngredientButtonContainer = styled.div`
 `;
 
 const StyledIngredientButton = styled.button`
-  background-color: var(--grey2);
+  width: 110px;
+  height: 55px;
+  margin: 10px;
+  border-radius: 10px;
+  padding: 0 15px;
+  border: 1px;
+  font-family: GmarketSansMedium;
+
+  &: hover {
+    cursor: pointer;
+  }
 `;
 
 const StyledIngredientCocktaiCardUL = styled.ul`
@@ -51,9 +75,9 @@ export default function Ingredient() {
   const [showingIngredients, setShowingIngredients] = useState(null);
   const [selectedIngredientCocktailCardInfoArray, setSelectedIngredientCocktailCardInfoArray] = useState([]);
 
+  // 선택된 재료로 만든 칵테일 배열을 채우는 함수이다.
   async function handleClickIngredientButton(ev) {
     const buttonIngredientName = ev.target.innerText;
-    // console.log(buttonIngredientName);
     try {
       const response = await getCocktailByIngredientName(buttonIngredientName);
 
@@ -62,16 +86,16 @@ export default function Ingredient() {
       setSelectedIngredientCocktailCardInfoArray([]);
     }
   }
-  // setSelectedIngredientCocktailCardInfoArray(data['drinks']);
-  // 처음 컴포넌트가 렌더링될 때, 재료들을 ingredientArray 상태에 넣어줌
+
+  // 처음 컴포넌트가 렌더링될 때, 재료명을 ingredientArray 상태에 넣어줌
   useEffect(() => {
     const tmpIngredientArray = [];
     for (let i = 0; i < 26; i++) tmpIngredientArray.push([]);
 
     for (let i = 0; i < ingredientData.length; i++) {
       const firstLetter = ingredientData[i]['strIngredient'][0];
-      // console.log(firstLetter);
       const firstLetterAlphabetIndex = alphabet.indexOf(firstLetter.toLowerCase());
+
       if (firstLetterAlphabetIndex >= 0 && firstLetterAlphabetIndex <= 25) {
         tmpIngredientArray[firstLetterAlphabetIndex].push(ingredientData[i]['strIngredient']);
       }
@@ -82,39 +106,39 @@ export default function Ingredient() {
 
   // 아래 useEffect 훅의 효과를 그냥 버튼의 onClick 속성에서 진행할 수도 있을까?
   useEffect(() => {
+    // 첫 렌더링 시 마운트 될 때에는 재료를 보여주지 않고 pass
     if (selectedAlphabetButtonIndex === null) return;
 
     setShowingIngredients(ingredientArray[selectedAlphabetButtonIndex]);
+    // 여러 칵테일을 보는 와중에도 다시 알파벳을 눌렀다면 보여지는 칵테일들을 사라지게 만들고 재료만 보이게 해줌
     setSelectedIngredientCocktailCardInfoArray([]);
   }, [selectedAlphabetButtonIndex]);
 
   return (
-    <StyledIngredientContainer>
-      <StyledAlphabetButtonContainer>
-        <ul>
-          {alphabet.split('').map((character, index) => (
-            <StyledAlphabetButton
-              key={character}
-              onClick={() => {
-                setSelectedAlphabetButtonIndex(index);
-              }}
-            >
-              {character}
-            </StyledAlphabetButton>
-          ))}
-        </ul>
-      </StyledAlphabetButtonContainer>
+    <StyledIngredientContainer className='scroll-box'>
+      <StyledButtonUl>
+        {alphabet.split('').map((character, index) => (
+          <StyledAlphabetButton
+            key={character}
+            onClick={() => {
+              setSelectedAlphabetButtonIndex(index);
+            }}
+          >
+            {character}
+          </StyledAlphabetButton>
+        ))}
+      </StyledButtonUl>
 
       {showingIngredients !== null && (
         <StyledIngredientButtonContainer>
           {showingIngredients.length > 0 ? (
-            <ul>
+            <StyledButtonUl>
               {showingIngredients.map((ingredient, index) => (
                 <StyledIngredientButton key={index} onClick={handleClickIngredientButton}>
                   {ingredient}
                 </StyledIngredientButton>
               ))}
-            </ul>
+            </StyledButtonUl>
           ) : (
             <div>No ingredient!</div>
           )}

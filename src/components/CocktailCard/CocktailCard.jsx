@@ -13,22 +13,34 @@ const StyledCocktailCardUI = styled.div`
   justify-content: space-evenly;
   align-items: center;
   border: 1px solid black;
+  position: relative;
 
   &: hover {
     cursor: pointer;
+  }
+
+  &: active {
+    transform: translate(-5px, -5px);
   }
 `;
 
 const StyledCocktailImage = styled.img`
   border-radius: 10px;
+  position: absolute;
+  top: 10px;
 `;
 
 const StyledCocktailP = styled.p`
   font-size: 30px;
   text-align: center;
-  font-family: yg-jalnan;
+  display: block;
+  margin: 0;
+  font-family: GmarketSansMedium;
+  position: absolute;
+  bottom: 10px;
 `;
 
+// 모든 CocktailCard에는 cocktailInfo가 prop으로 전달된다
 export default function CocktailCard({ cocktailInfo }) {
   const { handleCurrentDetailCocktailInfo } = useDataContext();
 
@@ -36,11 +48,15 @@ export default function CocktailCard({ cocktailInfo }) {
     handleCurrentDetailCocktailInfo(cocktailInfo);
   }
 
-  console.log(cocktailInfo);
   return (
     <Link to='/cocktail-detail' onClick={handleClickCocktailCard} style={{ textDecoration: 'none', color: 'black' }}>
       <StyledCocktailCardUI>
-        <StyledCocktailImage src={`${cocktailInfo.strDrinkThumb}/preview`} alt='cocktail card image' />
+        <StyledCocktailImage
+          src={`${cocktailInfo.strDrinkThumb}`}
+          alt='cocktail card image'
+          width='250px'
+          height='250px'
+        />
         <StyledCocktailP>{cocktailInfo.strDrink}</StyledCocktailP>
       </StyledCocktailCardUI>
     </Link>

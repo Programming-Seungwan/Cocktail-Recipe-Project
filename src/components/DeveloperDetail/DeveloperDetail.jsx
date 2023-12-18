@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { useDataContext } from '../../dataContext';
 
 const StyledDeveloperContainer = styled.div`
   margin: 7vh 0;

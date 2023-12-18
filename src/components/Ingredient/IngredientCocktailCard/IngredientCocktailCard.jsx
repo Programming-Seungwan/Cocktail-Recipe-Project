@@ -14,20 +14,32 @@ const StyledIngredientCocktailCardUI = styled.div`
   justify-content: space-evenly;
   align-items: center;
   border: 1px solid black;
+  position: relative;
+  margin: 15px 0 0 0;
 
   &: hover {
     cursor: pointer;
+  }
+
+  &: active {
+    transform: translate(-5px, -5px);
   }
 `;
 
 const StyledIngredientCocktailImage = styled.img`
   border-radius: 10px;
+  position: absolute;
+  top: 10px;
 `;
 
 const StyledIngredientCocktailP = styled.p`
   font-size: 30px;
   text-align: center;
-  font-family: yg-jalnan;
+  display: block;
+  margin: 0;
+  font-family: GmarketSansMedium;
+  position: absolute;
+  bottom: 10px;
 `;
 export default function IngredientCocktailCard({ ingredientCardInfo }) {
   const { handleCurrentDetailCocktailInfo } = useDataContext();
@@ -46,8 +58,10 @@ export default function IngredientCocktailCard({ ingredientCardInfo }) {
   return (
     <StyledIngredientCocktailCardUI onClick={handleClickCategoryCocktailCard}>
       <StyledIngredientCocktailImage
-        src={`${ingredientCardInfo.strDrinkThumb}/preview`}
+        src={`${ingredientCardInfo.strDrinkThumb}`}
         alt='ingredient cocktail card image'
+        width='250px'
+        height='250px'
       />
       <StyledIngredientCocktailP>{ingredientCardInfo.strDrink}</StyledIngredientCocktailP>
     </StyledIngredientCocktailCardUI>

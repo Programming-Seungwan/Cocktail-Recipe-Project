@@ -27,6 +27,8 @@ export default function Random() {
     for (let i = 0; i < 5; i++) {
       getRandomOneCocktail().then((data) => setRandomFiveCocktailInfoArray((prev) => [...prev, data[0]]));
     }
+
+    return () => setRandomFiveCocktailInfoArray([]);
   }, []);
 
   return (
