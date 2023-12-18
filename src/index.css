@@ -36,8 +36,9 @@ html {
 }
 
 body {
-  margin: 0;
+  margin: 0 auto;
   height: 100%;
+  max-width: 480px;
 }
 
 #root {

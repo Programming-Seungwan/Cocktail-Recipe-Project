@@ -7,6 +7,7 @@ const HeaderContainer = styled.header`
   background-color: #f8fafc;
   border-bottom: 1px solid #e5e7eb;
   width: 100%;
+  max-width: 480px;
   position: fixed;
   top: 0;
   z-index: 10;

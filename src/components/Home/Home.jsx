@@ -20,6 +20,10 @@ export default function Home() {
 
   useEffect(() => {
     getRandomOneCocktail().then((data) => setCocktailInfo(data[0]));
+
+    return () => {
+      setCocktailInfo(null);
+    };
   }, []);
 
   return (
