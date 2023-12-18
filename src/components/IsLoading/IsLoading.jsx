@@ -1,14 +1,11 @@
-import styled from 'styled-components';
-
-const StyledIsLoadingUI = styled.div`
-  width: 300px;
-  height: 400px;
-  border-radius: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
+import { Background, LoadingText } from './Styles';
+import Spinner from '/assets/IsLoading/loading-spinner.gif';
 
 export default function IsLoading() {
-  return <StyledIsLoadingUI>Now Loading...</StyledIsLoadingUI>;
+  return (
+    <Background>
+      <LoadingText>Waiting for cocktail data...</LoadingText>
+      <img src={Spinner} alt='fetching data gif' width='20%' />
+    </Background>
+  );
 }
