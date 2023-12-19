@@ -30,7 +30,7 @@ const StyledButtonUl = styled.ul`
 `;
 
 const StyledAlphabetButton = styled.button`
-  background-color = var(--grey2);
+  background-color = var(--grey4);
   width: calc(33% - 15px);
   height: 55px;
   margin: 5px;

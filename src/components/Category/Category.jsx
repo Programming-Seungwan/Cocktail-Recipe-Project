@@ -10,7 +10,7 @@ import CategoryCocktailCard from './CategoryCocktailCard/CategoryCocktailCard';
 import { getCocktailsByCategoryName } from '../../apiFuncs';
 
 const StyledCategoryContainer = styled.div`
-  margin: 7vh 0;
+  margin: 8vh 0;
   padding: 0 1vh;
   flex: 1;
   display: flex;
@@ -20,14 +20,28 @@ const StyledCategoryContainer = styled.div`
   overflow-y: auto;
 `;
 
-// 버튼들을 담을 컨테이너에 해당하며 이 역시 최외곽 컨테이너의 1차 자식임
-const StyledCategoryButtonsContainer = styled.div`
+const StyledCategoryButtonUL = styled.ul`
+  margin: 0;
+  padding: 0;
   display: flex;
+  width: 100%;
   flex-wrap: wrap;
+  justify-content: center;
 `;
 
 const StyledCategoryButton = styled.button`
-  background-color: var(--grey3);
+  background-color: var(--grey4);
+  width: calc(33% - 15px);
+  height: 55px;
+  margin: 5px;
+  border-radius: 10px;
+  padding: 0;
+  border: 1px;
+  font-family: GmarketSansMedium;
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 const StyledCategoryCocktaiCardUL = styled.ul`
@@ -62,16 +76,14 @@ export default function Category() {
   }, [selectedCategory]);
 
   return (
-    <StyledCategoryContainer>
-      <StyledCategoryButtonsContainer>
-        <ul>
-          {categoryArray.map((categoryName, index) => (
-            <StyledCategoryButton key={categoryName} onClick={handleClickCategoryButton}>
-              {categoryName}
-            </StyledCategoryButton>
-          ))}
-        </ul>
-      </StyledCategoryButtonsContainer>
+    <StyledCategoryContainer className='scroll-box'>
+      <StyledCategoryButtonUL>
+        {categoryArray.map((categoryName, index) => (
+          <StyledCategoryButton key={categoryName} onClick={handleClickCategoryButton}>
+            {categoryName}
+          </StyledCategoryButton>
+        ))}
+      </StyledCategoryButtonUL>
 
       <StyledCategoryCocktaiCardUL>
         {categoryCocktailArray.map((categoryCocktail, index) => (
