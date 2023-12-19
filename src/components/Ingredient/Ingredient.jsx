@@ -7,6 +7,7 @@ import { useState, useEffect } from 'react';
 import ingredientData from '../../ingredients.json';
 import { getCocktailByIngredientName } from '../../apiFuncs';
 import IngredientCocktailCard from './IngredientCocktailCard/IngredientCocktailCard';
+import NoIngredientUI from './NoIngredientUI';
 
 const StyledIngredientContainer = styled.div`
   margin: 7vh 0;
@@ -25,13 +26,14 @@ const StyledButtonUl = styled.ul`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  width: 100%;
 `;
 
 const StyledAlphabetButton = styled.button`
   background-color = var(--grey2);
-  width: 110px;
+  width: calc(33% - 15px);
   height: 55px;
-  margin: 10px;
+  margin: 5px;
   border-radius: 10px;
   padding: 0;
   border: 1px;
@@ -43,18 +45,23 @@ const StyledAlphabetButton = styled.button`
 `;
 
 const StyledIngredientButtonContainer = styled.div`
+  width: 100%;
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
+  margin-top: 40px;
 `;
 
 const StyledIngredientButton = styled.button`
-  width: 110px;
+  width: calc(33% - 15px);
   height: 55px;
-  margin: 10px;
+  margin: 5px;
   border-radius: 10px;
   padding: 0 15px;
   border: 1px;
   font-family: GmarketSansMedium;
+  font-size: 11px;
+  word-wrap: break-word;
 
   &: hover {
     cursor: pointer;
@@ -140,7 +147,7 @@ export default function Ingredient() {
               ))}
             </StyledButtonUl>
           ) : (
-            <div>No ingredient!</div>
+            <NoIngredientUI>No ingredient!</NoIngredientUI>
           )}
         </StyledIngredientButtonContainer>
       )}
