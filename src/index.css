@@ -56,3 +56,8 @@ body {
 .scroll-box::-webkit-scrollbar {
   display: none; /* Chrome, Safari, Opera*/
 }
+
+/* 프로젝트 전반적으로 hover 효과를 주고싶은 아이템에 적용 */
+.hover:hover {
+  cursor: pointer;
+}
