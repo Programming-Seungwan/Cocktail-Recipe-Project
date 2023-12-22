@@ -7,13 +7,11 @@ import { Link } from 'react-router-dom';
 const StyledCocktailCardUI = styled.div`
   width: 300px;
   height: 400px;
-  border-radius: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
-  border: 1px solid black;
+  border-radius: 1rem;
+  overflow: hidden;
   position: relative;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 
   &: hover {
     cursor: pointer;
@@ -25,19 +23,20 @@ const StyledCocktailCardUI = styled.div`
 `;
 
 const StyledCocktailImage = styled.img`
-  border-radius: 10px;
-  position: absolute;
-  top: 10px;
+  width: 100%;
+  object-fit: cover;
 `;
 
 const StyledCocktailP = styled.p`
-  font-size: 30px;
+  font-size: 22px;
   text-align: center;
-  display: block;
   margin: 0;
-  font-family: GmarketSansMedium;
+  color: #4b5563;
+  font-family: Pretendard-Regular;
   position: absolute;
-  bottom: 10px;
+  bottom: 18px;
+  width: 100%;
+  text-align: center;
 `;
 
 // 모든 CocktailCard에는 cocktailInfo가 prop으로 전달된다
@@ -51,12 +50,7 @@ export default function CocktailCard({ cocktailInfo }) {
   return (
     <Link to='/cocktail-detail' onClick={handleClickCocktailCard} style={{ textDecoration: 'none', color: 'black' }}>
       <StyledCocktailCardUI>
-        <StyledCocktailImage
-          src={`${cocktailInfo.strDrinkThumb}`}
-          alt='cocktail card image'
-          width='250px'
-          height='250px'
-        />
+        <StyledCocktailImage src={`${cocktailInfo.strDrinkThumb}`} alt='cocktail card image' />
         <StyledCocktailP>{cocktailInfo.strDrink}</StyledCocktailP>
       </StyledCocktailCardUI>
     </Link>

@@ -4,11 +4,10 @@ import { useEffect, useState } from 'react';
 
 const StyledCocktailDetailContainer = styled.div`
   margin: 7vh 0;
-  padding: 2vh 1vh;
+  padding: 0vh 1vh;
   flex: 1;
   display: flex;
   flex-direction: column;
-  // 주 방향의 정렬을 space-between을 해줘야지 space-around 같은 거로 해주면 안된다
   justify-content: space-between;
   align-items: center;
   overflow-y: auto;
@@ -16,25 +15,31 @@ const StyledCocktailDetailContainer = styled.div`
 
 // 덩어리 1 = 이미지 + 칵테일 명
 const StyledImageAndNameContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  border: 1px solid black;
-  border-radius: 15px;
-  width: 250px;
-  height: 350px;
-  margin-bottom: 2vh;
+  overflow: hidden;
+  position: relative;
+  border-radius: 1rem;
+  width: 300px;
+  height: 400px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 `;
 
 const StyledCocktailDetailImage = styled.img`
-  border-radius: 10px;
+  width: 100%;
+  object-fit: cover;
 `;
 
 const StyledCocktailDetailP = styled.p`
-  font-size: 25px;
+  font-size: 22px;
   text-align: center;
-  font-family: yg-jalnan;
+  font-family: Pretendard-Regular;
+  position: absolute;
+  width: 100%;
+  margin: 0;
+  color: #4b5563;
+  bottom: 18px;
+  text-align: center;
+  line-height: 60px;
 `;
 
 // 덩어리 2 = 재료 + 재료들 나열
@@ -42,12 +47,18 @@ const StyledIngredientContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 250px;
+  width: 300px;
   height: auto;
-  justify-content: space-evenly;
-  border: 1px solid black;
-  border-radius: 15px;
-  margin-bottom: 2vh;
+  justify-content: space-between;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  border-radius: 1rem;
+  padding: 15px;
+  margin: 20px 0;
+`;
+
+const StyledIngredientDetailP = styled.p`
+  font-size: 22px;
+  margin: 0 0 35px 0;
 `;
 
 // ul은 재료를 나열하는 데에 쓰인다
@@ -72,10 +83,11 @@ const StyledOl = styled.ol`
 `;
 
 const StyledIngredientList = styled.li`
-  font-family: GmarketSansMedium;
+  font-family: 'Pretendard-Regular';
   width: 100%;
   display: flex;
   justify-content: center;
+  color: #4b5563;
 `;
 
 // 덩어리 3 = 레시피 + 레시피 나열
@@ -83,17 +95,17 @@ const StyledRecipeContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 250px;
+  width: 300px;
   height: auto;
-  justify-content: space-evenly;
+  justify-content: space-between;
   border: 1px solid black;
   border-radius: 15px;
-  padding: 0 10px 10px 10px;
+  padding: 15px;
   margin-bottom: 2vh;
 `;
 
 const StyledRecipeList = styled.li`
-  font-family: GmarketSansMedium;
+  font-family: 'Pretendard-Regular';
   width: 100%;
   display: flex;
   justify-content: center;
@@ -130,7 +142,7 @@ export default function CocktailDetail() {
       </StyledImageAndNameContainer>
 
       <StyledIngredientContainer>
-        <StyledCocktailDetailP style={{ fontSize: '15px' }}>Ingredients for your cocktail!</StyledCocktailDetailP>
+        <StyledIngredientDetailP>Ingredients for your cocktail!</StyledIngredientDetailP>
 
         <StyledUl>
           {ingredientArray.map((ingredient, index) => (

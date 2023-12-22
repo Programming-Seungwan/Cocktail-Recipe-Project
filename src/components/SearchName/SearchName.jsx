@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faXmark } from '@fortawesome/free-solid-svg-icons';
 
 const StyledSearchNameContainer = styled.div`
-  margin: 7vh 0 10vh 0;
+  margin: 7vh 0;
   padding: 0 1vh;
   flex: 1;
   display: flex;
@@ -62,10 +62,10 @@ const StyledFormRegenerateButton = styled.button`
 
 // 검색한 칵테일 카드들이 버튼과 겹치기에 position을 absolute로 해주고 부모인 껍데기 container를 relative로 만들어줌
 const StyledSearchCocktailsUL = styled.ul`
-  margin: 45px 0 0 0;
+  margin: 25px 0 0 0;
   padding: 0;
-  position: absolute;
-  top: 90px;
+  // position: absolute;
+  // top: 90px;
 `;
 
 export default function SearchName() {

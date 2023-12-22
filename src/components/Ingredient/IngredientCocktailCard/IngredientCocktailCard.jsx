@@ -8,14 +8,12 @@ import { useNavigate } from 'react-router-dom';
 const StyledIngredientCocktailCardUI = styled.div`
   width: 300px;
   height: 400px;
-  border-radius: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
-  border: 1px solid black;
+  border-radius: 1rem;
+  overflow: hidden;
   position: relative;
-  margin: 15px 0 0 0;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  position: relative;
 
   &: hover {
     cursor: pointer;
@@ -27,19 +25,20 @@ const StyledIngredientCocktailCardUI = styled.div`
 `;
 
 const StyledIngredientCocktailImage = styled.img`
-  border-radius: 10px;
-  position: absolute;
-  top: 10px;
+  width: 100%;
+  object-fit: cover;
 `;
 
 const StyledIngredientCocktailP = styled.p`
-  font-size: 30px;
+  font-size: 22px;
   text-align: center;
-  display: block;
   margin: 0;
-  font-family: GmarketSansMedium;
+  color: #4b5563;
+  font-family: Pretendard-Regular;
   position: absolute;
-  bottom: 10px;
+  bottom: 18px;
+  width: 100%;
+  text-align: center;
 `;
 export default function IngredientCocktailCard({ ingredientCardInfo }) {
   const { handleCurrentDetailCocktailInfo } = useDataContext();

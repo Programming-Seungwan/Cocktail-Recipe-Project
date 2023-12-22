@@ -23,7 +23,9 @@ const HeaderNavBar = styled.nav`
 `;
 
 const HeaderDeveloperName = styled.p`
-  font-family: yg-jalnan;
+  font-family: Pretendard-Regular;
+  font-weight: 600;
+  color: #4b5563;
   &: hover {
     cursor: pointer;
   }

@@ -19,29 +19,30 @@ const StyledRandomContainer = styled.div`
   overflow-y: auto;
 `;
 
+const StyledRandomUL = styled.ul`
+  margin: 20px 0 0 0;
+  padding: 0;
+`;
+
 export default function Random() {
   const [randomFiveCocktailInfoArray, setRandomFiveCocktailInfoArray] = useState([]);
 
   useEffect(() => {
-    getRandomOneCocktail().then((mydata) => console.log(mydata));
     for (let i = 0; i < 5; i++) {
       getRandomOneCocktail().then((data) => setRandomFiveCocktailInfoArray((prev) => [...prev, data[0]]));
     }
-
-    return () => setRandomFiveCocktailInfoArray([]);
   }, []);
 
   return (
     <StyledRandomContainer className='scroll-box'>
-      <div>This is random!</div>
       {randomFiveCocktailInfoArray.length < 5 ? (
         <IsLoading />
       ) : (
-        <ul style={{ margin: '0', padding: '0' }}>
+        <StyledRandomUL>
           {randomFiveCocktailInfoArray.map((cocktailInfo, index) => (
             <CocktailCard key={index} cocktailInfo={cocktailInfo} />
           ))}
-        </ul>
+        </StyledRandomUL>
       )}
     </StyledRandomContainer>
   );

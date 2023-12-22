@@ -21,7 +21,7 @@ const StyledCategoryContainer = styled.div`
 `;
 
 const StyledCategoryButtonUL = styled.ul`
-  margin: 0;
+  margin: 0 0 20px 0;
   padding: 0;
   display: flex;
   width: 100%;
