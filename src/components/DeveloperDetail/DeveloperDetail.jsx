@@ -15,28 +15,31 @@ const StyledDeveloperImage = styled.img`
   border-radius: 15px;
   width: 250px;
   height: 250px;
-  margin: 50px;
+  margin: 30px 0;
 `;
 
 const StyledDeveloperNameP = styled.p`
-  font-family: Helvetica;
+  font-family: Pretendard-Regular;
   font-size: 25px;
   width: 250px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
-const StyledDeveloperHisCareer = styled.div`
-  width: 90%;
+  text-align: center;
+  color: #4b5563;
+  margin: 15px 0;
 `;
 
 const StyledDeveloperCareerContainer = styled.div`
   width: 350px;
-  height: auto;
+  height: 400px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
+`;
+
+const StyledDeveloperCareerDiscriptionSpan = styled.span`
+  font-size: 20px;
+  font-family: Pretendard-Regular;
+  color: #4b5563;
 `;
 
 const StyledDeveloperCareerItem = styled.div`
@@ -56,7 +59,7 @@ export default function DeveloperDetail() {
       <StyledDeveloperNameP>Seung Wan, Kim</StyledDeveloperNameP>
 
       <StyledDeveloperCareerContainer>
-        <StyledDeveloperNameP>Who is him?</StyledDeveloperNameP>
+        <StyledDeveloperCareerDiscriptionSpan>Career</StyledDeveloperCareerDiscriptionSpan>
         <StyledDeveloperCareerItem>
           Whimoon 109th {'(from 2014 ~ 2016)'}
           <img src='/assets/DeveloperProfile/whimoon.webp' alt='whimoon logo' width='50px' height='50px' />

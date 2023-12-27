@@ -7,7 +7,7 @@ import { faSearch, faXmark } from '@fortawesome/free-solid-svg-icons';
 
 const StyledSearchNameContainer = styled.div`
   margin: 7vh 0;
-  padding: 0 1vh;
+  padding: 2vh 1vh;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -54,10 +54,19 @@ const StyledSearchFormInput = styled.input`
 `;
 
 const StyledFormRegenerateButton = styled.button`
-  width: 30%;
-  height: 40px;
-  margin: 20px;
-  background-color: green;
+  width: 250px;
+  height: 50px;
+  min-height: 50px;
+  position: sticky;
+  top: 0;
+  background-color: #0497f3;
+  color: white;
+  z-index: 10;
+  border-radius: 5px;
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 // 검색한 칵테일 카드들이 버튼과 겹치기에 position을 absolute로 해주고 부모인 껍데기 container를 relative로 만들어줌
@@ -102,7 +111,7 @@ export default function SearchName() {
 
       {isFormSubmit && (
         <StyledFormRegenerateButton onClick={handleClickRegenerateFormbutton} className='button'>
-          Search Cocktail by name again!
+          Click here to search cocktail again!
         </StyledFormRegenerateButton>
       )}
 

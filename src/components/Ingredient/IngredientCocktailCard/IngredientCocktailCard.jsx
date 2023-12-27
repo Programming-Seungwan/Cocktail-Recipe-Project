@@ -19,9 +19,9 @@ const StyledIngredientCocktailCardUI = styled.div`
     cursor: pointer;
   }
 
-  &: active {
-    transform: translate(-5px, -5px);
-  }
+  // &: active {
+  //   transform: translate(-5px, -5px);
+  // }
 `;
 
 const StyledIngredientCocktailImage = styled.img`
