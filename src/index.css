@@ -52,6 +52,7 @@ body {
   display: flex;
   flex-direction: column;
   height: 100%;
+  box-shadow: 0 0 20px #0000000d;
 }
 
 /* content overflow로 인해서 생성되는 스크롤바를 없애주기 위한 설정 */
