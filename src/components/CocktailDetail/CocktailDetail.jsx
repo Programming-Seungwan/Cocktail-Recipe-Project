@@ -3,91 +3,68 @@ import { useDataContext } from '../../dataContext';
 import { useEffect, useState } from 'react';
 
 const StyledCocktailDetailContainer = styled.div`
-  margin: 7vh 0;
-  padding: 0vh 1vh;
+  margin: 8vh 0;
+  padding: 1vh;
   flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   overflow-y: auto;
 `;
 
 // 덩어리 1 = 이미지 + 칵테일 명
 const StyledImageAndNameContainer = styled.div`
   overflow: hidden;
-  position: relative;
   border-radius: 1rem;
   width: 300px;
   height: 400px;
-  margin-bottom: 20px;
+  min-height: 400px;
+  position: relative;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 `;
 
-const StyledCocktailDetailImage = styled.img`
+const StyledCocktailImage = styled.img`
   width: 100%;
   object-fit: cover;
 `;
 
-const StyledCocktailDetailP = styled.p`
+const StyledCocktailName = styled.p`
   font-size: 22px;
   text-align: center;
-  font-family: Pretendard-Regular;
-  position: absolute;
-  width: 100%;
   margin: 0;
   color: #4b5563;
+  font-family: Pretendard-Regular;
+  // margin-top: 50px;
+  width: 100%;
+  position: absolute;
   bottom: 18px;
   text-align: center;
-  line-height: 60px;
 `;
-
 // 덩어리 2 = 재료 + 재료들 나열
 const StyledIngredientContainer = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
   align-items: center;
   width: 300px;
   height: auto;
-  justify-content: space-between;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   border-radius: 1rem;
-  padding: 15px;
-  margin: 20px 0;
 `;
 
-const StyledIngredientDetailP = styled.p`
+const StyledIngredientDescriptionP = styled.p`
+  width: 90%;
+  text-align: center;
   font-size: 22px;
-  margin: 0 0 35px 0;
 `;
 
-// ul은 재료를 나열하는 데에 쓰인다
-const StyledUl = styled.ul`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-`;
-
-// ol은 레시피에서 쓰인다
-const StyledOl = styled.ol`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin: 0;
-  padding: 0;
-`;
-
-const StyledIngredientList = styled.li`
-  font-family: 'Pretendard-Regular';
-  width: 100%;
-  display: flex;
-  justify-content: center;
+const StyledIngredientNameDiv = styled.div`
+  width: 90%;
+  margin: 10px 0;
+  font-family: Pretendard-Regular;
   color: #4b5563;
+  font-size: 20px;
 `;
 
 // 덩어리 3 = 레시피 + 레시피 나열
@@ -98,17 +75,22 @@ const StyledRecipeContainer = styled.div`
   width: 300px;
   height: auto;
   justify-content: space-between;
-  border: 1px solid black;
-  border-radius: 15px;
-  padding: 15px;
-  margin-bottom: 2vh;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 `;
 
-const StyledRecipeList = styled.li`
-  font-family: 'Pretendard-Regular';
-  width: 100%;
-  display: flex;
-  justify-content: center;
+const StyledRecipeDescriptionP = styled.p`
+  width: 90%;
+  text-align: center;
+  font-size: 22px;
+`;
+
+const StyledRecipeDiv = styled.div`
+  width: 90%;
+  font-family: Pretendard-Regular;
+  color: #4b5563;
+  font-size: 20px;
+  margin: 10px 0;
 `;
 
 export default function CocktailDetail() {
@@ -118,9 +100,8 @@ export default function CocktailDetail() {
 
   useEffect(() => {
     const tmpIngredientArray = [];
-
+    console.log(currentDetailCocktailInfo);
     for (let i = 1; i <= 15; i++) {
-      console.log(currentDetailCocktailInfo[`strIngredient${i}`]);
       if (currentDetailCocktailInfo[`strIngredient${i}`] !== null) {
         tmpIngredientArray.push(currentDetailCocktailInfo[`strIngredient${i}`]);
       }
@@ -131,33 +112,34 @@ export default function CocktailDetail() {
     setRecipeArray(tmpRecipeArray);
   }, []);
 
+  console.log(recipeArray);
   return (
     <StyledCocktailDetailContainer className='scroll-box'>
       <StyledImageAndNameContainer>
-        <StyledCocktailDetailImage
-          src={`${currentDetailCocktailInfo.strDrinkThumb}/preview`}
-          alt='cocktail card image'
-        />
-        <StyledCocktailDetailP>{currentDetailCocktailInfo.strDrink}</StyledCocktailDetailP>
+        <StyledCocktailImage src={`${currentDetailCocktailInfo.strDrinkThumb}/preview`} />
+        <StyledCocktailName>{currentDetailCocktailInfo.strDrink}</StyledCocktailName>
       </StyledImageAndNameContainer>
 
       <StyledIngredientContainer>
-        <StyledIngredientDetailP>Ingredients for your cocktail!</StyledIngredientDetailP>
-
-        <StyledUl>
-          {ingredientArray.map((ingredient, index) => (
-            <StyledIngredientList key={index}>{ingredient}</StyledIngredientList>
-          ))}
-        </StyledUl>
+        <StyledIngredientDescriptionP>Ingredients 🍶</StyledIngredientDescriptionP>
+        {ingredientArray.map((ingredient, index) => (
+          <StyledIngredientNameDiv key={ingredient}>
+            {index + 1}. {ingredient}
+          </StyledIngredientNameDiv>
+        ))}
       </StyledIngredientContainer>
 
       <StyledRecipeContainer>
-        <StyledCocktailDetailP style={{ fontSize: '15px' }}>Recipes for your cocktail!</StyledCocktailDetailP>
-        <StyledOl>
-          {recipeArray.map((recipe, index) => (
-            <StyledRecipeList key={index}>{recipe}</StyledRecipeList>
-          ))}
-        </StyledOl>
+        <StyledRecipeDescriptionP>Recipes 📋</StyledRecipeDescriptionP>
+        {recipeArray.map((recipe, index) => {
+          if (recipe.length !== 0)
+            return (
+              <StyledRecipeDiv key={recipe}>
+                {index + 1}. {recipe}
+              </StyledRecipeDiv>
+            );
+          else return;
+        })}
       </StyledRecipeContainer>
     </StyledCocktailDetailContainer>
   );
