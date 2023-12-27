@@ -126,6 +126,7 @@ export default function Ingredient() {
       <StyledButtonUl>
         {alphabet.split('').map((character, index) => (
           <StyledAlphabetButton
+            className='button'
             key={character}
             onClick={() => {
               setSelectedAlphabetButtonIndex(index);
@@ -141,7 +142,7 @@ export default function Ingredient() {
           {showingIngredients.length > 0 ? (
             <StyledButtonUl>
               {showingIngredients.map((ingredient, index) => (
-                <StyledIngredientButton key={index} onClick={handleClickIngredientButton}>
+                <StyledIngredientButton key={index} onClick={handleClickIngredientButton} className='button'>
                   {ingredient}
                 </StyledIngredientButton>
               ))}

@@ -101,7 +101,7 @@ export default function SearchName() {
       )}
 
       {isFormSubmit && (
-        <StyledFormRegenerateButton onClick={handleClickRegenerateFormbutton}>
+        <StyledFormRegenerateButton onClick={handleClickRegenerateFormbutton} className='button'>
           Search Cocktail by name again!
         </StyledFormRegenerateButton>
       )}

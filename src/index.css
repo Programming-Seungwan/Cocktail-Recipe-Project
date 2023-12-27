@@ -68,3 +68,10 @@ body {
 .hover:hover {
   cursor: pointer;
 }
+
+.button {
+  color: black; /* 텍스트 색상 */
+  border: none;
+  -webkit-appearance: none; /* iOS에서 기본 스타일 제거 */
+  -moz-appearance: none; /* Firefox에서 기본 스타일 제거 */
+}

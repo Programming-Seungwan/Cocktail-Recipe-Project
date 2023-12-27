@@ -79,7 +79,7 @@ export default function Category() {
     <StyledCategoryContainer className='scroll-box'>
       <StyledCategoryButtonUL>
         {categoryArray.map((categoryName, index) => (
-          <StyledCategoryButton key={categoryName} onClick={handleClickCategoryButton}>
+          <StyledCategoryButton key={categoryName} onClick={handleClickCategoryButton} className='button'>
             {categoryName}
           </StyledCategoryButton>
         ))}
